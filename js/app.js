@@ -1,7 +1,7 @@
 const phone = () =>{
     const inputField = document.getElementById('input-field');
     const searchText = inputField.value ; 
-    //console.log(searchText);
+    document.getElementById('input-field').value = '' ;
     const url = ` https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(url)
      .then(res => res.json())
@@ -11,15 +11,15 @@ const phone = () =>{
 const showPhone  = (phones)=>{
 const phoneContainer = document.getElementById('phone-container')
 phoneContainer.innerHTML = '' ;
-document.getElementById('phone-container').value = '' ;
+
  phones.forEach(phone =>{
   //  console.log(phone);
     const div = document.createElement('div')
     div.classList.add('col')
     div.innerHTML = ` 
-    <div class="card">
+    <div class="card p-3 text-center shadow-lg ">
     <img width="400px"  src="${phone.image}" class="card-img-top " alt="...">
-    <div class="card-body">
+    <div class="card-body border-0  ">
       <h5 class="card-title">Brand: ${phone.brand}</h5>
       <p class="card-text"> Model: ${phone.phone_name}</p>
       <p class="card-text"> Relese Date: ${phone.releaseDate}</p>
@@ -39,7 +39,9 @@ const moreInfo = (id) =>{
 }
 
 const showInfo = (information) =>{
+    console.log(information);
   const infoContainer = document.getElementById('info-container')
+  infoContainer.innerHTML = '' ;
   const div = document.createElement('div')
   div.classList.add('col')
   div.innerHTML= ` 
@@ -47,10 +49,11 @@ const showInfo = (information) =>{
   <img width="400px"  src="${information.image}" class="card-img-top " alt="...">
   <div class="card-body">
     <h5 class="card-title">Brand: ${information.brand}</h5>
-    <p class="card-text"> Model: ${information.phone_name}</p>
+    <p class="card-text"> Model: ${information.name}</p>
     <p class="card-text"> Relese Date: ${information.releaseDate}</p>
   </div>
 </div>
   `
   infoContainer.appendChild(div)
+  
 } 
