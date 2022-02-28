@@ -5,7 +5,7 @@ const phone = () =>{
     const url = ` https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(url)
      .then(res => res.json())
-     .then(data => showPhone(data.data))
+     .then(data => showPhone(data.data.slice(0,20)))
 }
 
 const showPhone  = (phones)=>{
@@ -13,7 +13,7 @@ const phoneContainer = document.getElementById('phone-container')
 phoneContainer.innerHTML = '' ;
 
  phones.forEach(phone =>{
-  //  console.log(phone);
+    console.log(phone);
     const div = document.createElement('div')
     div.classList.add('col')
     div.innerHTML = ` 
