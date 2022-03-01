@@ -8,19 +8,23 @@ const clearField = () =>{
   infoContainer.innerHTML = '' ;
 }
 
+
 //fetch phone data
 const phone = () =>{
     //get input value
+    
     const inputField = document.getElementById('input-field');
     const searchText = inputField.value ; 
     document.getElementById('input-field').value = '' ;
      //error handleing
+    
     if(searchText === typeof 'number' || searchText == ''  ){
     error.innerText ="Please Search By Phone Name..!"
     clearField()
     }
     else if(searchText < 0 ){
       error.innerText ="Sorry You Can't used Negative values" 
+      clearField()
     }
     else{
       const url = ` https://openapi.programming-hero.com/api/phones?search=${searchText}`
@@ -34,10 +38,10 @@ const phone = () =>{
          else{
           showPhone(data.data.slice(0,20))
           error.innerText =" "
+            
          }
        })
-     
-       
+  
     }
 }
 
@@ -62,6 +66,7 @@ infoContainer.innerHTML = '' ;
      `
      phoneContainer.appendChild(div)
  })
+
 }
 
 //fetch details api
