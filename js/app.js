@@ -1,12 +1,21 @@
 //fetch phone data
 const phone = () =>{
+
     const inputField = document.getElementById('input-field');
     const searchText = inputField.value ; 
     document.getElementById('input-field').value = '' ;
-    const url = ` https://openapi.programming-hero.com/api/phones?search=${searchText}`
-    fetch(url)
-     .then(res => res.json())
-     .then(data => showPhone(data.data.slice(0,20)))
+    if(searchText === typeof 'number' || searchText == ''){
+    const error =    document.getElementById('error')
+    error.innerText ="Please Search By Phone Name..!"
+    }
+    else{
+
+      const url = ` https://openapi.programming-hero.com/api/phones?search=${searchText}`
+      fetch(url)
+       .then(res => res.json())
+       .then(data => showPhone(data.data.slice(0,20)))
+       document.getElementById('error').innerText = " "
+    }
 }
 
 const showPhone  = (phones)=>{
@@ -14,7 +23,7 @@ const phoneContainer = document.getElementById('phone-container')
 phoneContainer.innerHTML = '' ;
 
  phones.forEach(phone =>{
-    //console.log(phone);
+    console.log(phone);
     const div = document.createElement('div')
     div.classList.add('col')
     div.innerHTML = ` 
@@ -58,11 +67,11 @@ const showInfo = (information) =>{
     <p class="card-text"> <span class="fw-bold">Relese Date</span>  : ${information.releaseDate}</p>
     <p class="text-center text-info">Others Information <br> _________</p>
     <p class="card-text"> <span class="fw-bold">NFC</span>  : ${information.others.NFC}</p>
-    <p class="card-text"> <span class="fw-bold">Bluetooth</span>  : ${information.others.Bluetooth}</p>
-    <p class="card-text"> <span class="fw-bold">Radio</span>  : ${information.others.Radio}</p>
-    <p class="card-text"> <span class="fw-bold">Usb</span>  : ${information.others.USB}</p>
-    <p class="card-text"> <span class="fw-bold">GPS</span>  : ${information.others.GPS}</p>
-    <p class="card-text"> <span class="fw-bold">WALN</span>  : ${information.others.WLAN}</p>
+    <p class="card-text"> <span class="fw-bold">Bluetooth</span>  : ${information.others?.Bluetooth}</p>
+    <p class="card-text"> <span class="fw-bold">Radio</span>  : ${information.others?.Radio}</p>
+    <p class="card-text"> <span class="fw-bold">Usb</span>  : ${information.others?.USB}</p>
+    <p class="card-text"> <span class="fw-bold">GPS</span>  : ${information.others?.GPS}</p>
+    <p class="card-text"> <span class="fw-bold">WALN</span>  : ${information.others?.WLAN}</p>
     
 
   </div>
