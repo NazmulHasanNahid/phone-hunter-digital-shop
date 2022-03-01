@@ -1,30 +1,36 @@
-//fetch phone data
-const phone = () =>{
+const error =    document.getElementById('error')
 
+//fetch phone data
+
+const phone = () =>{
+    //get input value
     const inputField = document.getElementById('input-field');
     const searchText = inputField.value ; 
     document.getElementById('input-field').value = '' ;
+     //error handleing
     if(searchText === typeof 'number' || searchText == ''  ){
-    const error =    document.getElementById('error')
+  
     error.innerText ="Please Search By Phone Name..!"
+    clearField()
     }
     else if(searchText < 0 ){
-      const error =    document.getElementById('error')
+     
       error.innerText ="Sorry You Can't used Negative values" 
     }
     else{
-
       const url = ` https://openapi.programming-hero.com/api/phones?search=${searchText}`
       fetch(url)
        .then(res => res.json())
        .then(data => {
+        
          if(data.data.length === 0){
-          const error =    document.getElementById('error')
-          error.innerText ="No Result Found..!" 
+          clearField()
+         
+          error.innerText ="Sorry No Result Found..!" 
          }
          else{
           showPhone(data.data.slice(0,20))
-          const error =    document.getElementById('error')
+         
           error.innerText =" " 
 
          }
@@ -37,9 +43,10 @@ const phone = () =>{
 const showPhone  = (phones)=>{
 const phoneContainer = document.getElementById('phone-container')
 phoneContainer.innerHTML = '' ;
+const infoContainer = document.getElementById('info-container')
+infoContainer.innerHTML = '' ;
 
  phones.forEach(phone =>{
-    console.log(phone);
     const div = document.createElement('div')
     div.classList.add('col')
     div.innerHTML = ` 
@@ -65,7 +72,6 @@ const moreInfo = (id) =>{
 }
 
 const showInfo = (information) =>{
- console.log(information);
   const infoContainer = document.getElementById('info-container')
   infoContainer.innerHTML = '' ;
   const div = document.createElement('div')
@@ -96,3 +102,11 @@ const showInfo = (information) =>{
   infoContainer.appendChild(div)
   
 } 
+
+//clear field function
+const clearField = () =>{
+    const phoneContainer = document.getElementById('phone-container')
+    phoneContainer.innerHTML = '' ;
+    const infoContainer = document.getElementById('info-container')
+    infoContainer.innerHTML = '' ;
+}
