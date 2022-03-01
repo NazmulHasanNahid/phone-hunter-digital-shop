@@ -86,7 +86,7 @@ const showInfo = (information) =>{
     <p class="card-text"> <span class="fw-bold"> Disply Size</span> : ${information.mainFeatures.displaySize}</p>
     <p class="card-text"> <span class="fw-bold">Memory</span>  : ${information.mainFeatures.memory}</p>
     <p class="card-text"> <span class="fw-bold">Sensor</span>  : ${information.mainFeatures.sensors}</p>
-    <p id="date" class="card-text"> <span class="fw-bold">Relese Date</span>  : ${information.releaseDate} </p>
+    <p id="date" class="card-text"> <span class="fw-bold">Relese Date</span>  : ${information.releaseDate ?information.releaseDate :'Not Found'} </p>
     <p class="text-center text-info">Others Information <br> _________</p>
     <p class="card-text"> <span class="fw-bold">NFC</span>  : ${information.others.NFC}</p>
     <p class="card-text"> <span class="fw-bold">Bluetooth</span>  : ${information.others.Bluetooth}</p>
