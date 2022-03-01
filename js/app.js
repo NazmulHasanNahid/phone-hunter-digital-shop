@@ -1,3 +1,4 @@
+//fetch phone data
 const phone = () =>{
     const inputField = document.getElementById('input-field');
     const searchText = inputField.value ; 
@@ -31,6 +32,7 @@ phoneContainer.innerHTML = '' ;
  })
 }
 
+//fetch details api
 const moreInfo = (id) =>{
 
  fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
@@ -39,21 +41,22 @@ const moreInfo = (id) =>{
 }
 
 const showInfo = (information) =>{
-  //console.log(information.mainFeatures.chipSet);
+ // console.log(information.mainFeatures.sensors);
   const infoContainer = document.getElementById('info-container')
   infoContainer.innerHTML = '' ;
   const div = document.createElement('div')
   div.classList.add('col')
   div.innerHTML= ` 
   <div class="card p-3 shadow-lg">
-  <img width="400px"  src="${information.image}" class="card-img-top " alt="...">
+  <img width="400px"  src="${information.image}" class="card-img-top img-fluid" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Brand: ${information.brand}</h5>
-    <p class="card-text"> Model: ${information.name}</p>
-    <p class="card-text"> ChipSet: ${information.mainFeatures.chipSet}</p>
-    <p class="card-text"> Disply Size: ${information.mainFeatures.displaySize}</p>
-    <p class="card-text"> Memory: ${information.mainFeatures.memory}</p>
-    <p class="card-text"> Relese Date: ${information.releaseDate}</p>
+    <h5 class="card-title"> <span class="fw-bold">Brand</span> : ${information.brand}</h5>
+    <p class="card-text"> <span class="fw-bold">Model</span> : ${information.name}</p>
+    <p class="card-text"><span class="fw-bold"> ChipSet</span> : ${information.mainFeatures.chipSet}</p>
+    <p class="card-text"> <span class="fw-bold"> Disply Size</span> : ${information.mainFeatures.displaySize}</p>
+    <p class="card-text"> <span class="fw-bold">Memory</span>  : ${information.mainFeatures.memory}</p>
+    <p class="card-text"> <span class="fw-bold">Sensor</span>  : ${information.mainFeatures.sensors}</p>
+    <p class="card-text"> <span class="fw-bold">Relese Date</span>  : ${information.releaseDate}</p>
   </div>
 </div>
   `
