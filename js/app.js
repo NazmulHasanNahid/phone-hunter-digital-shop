@@ -13,7 +13,7 @@ const phoneContainer = document.getElementById('phone-container')
 phoneContainer.innerHTML = '' ;
 
  phones.forEach(phone =>{
-    console.log(phone);
+    //console.log(phone);
     const div = document.createElement('div')
     div.classList.add('col')
     div.innerHTML = ` 
@@ -39,17 +39,20 @@ const moreInfo = (id) =>{
 }
 
 const showInfo = (information) =>{
-    console.log(information);
+  //console.log(information.mainFeatures.chipSet);
   const infoContainer = document.getElementById('info-container')
   infoContainer.innerHTML = '' ;
   const div = document.createElement('div')
   div.classList.add('col')
   div.innerHTML= ` 
-  <div class="card">
+  <div class="card p-3 shadow-lg">
   <img width="400px"  src="${information.image}" class="card-img-top " alt="...">
   <div class="card-body">
     <h5 class="card-title">Brand: ${information.brand}</h5>
     <p class="card-text"> Model: ${information.name}</p>
+    <p class="card-text"> ChipSet: ${information.mainFeatures.chipSet}</p>
+    <p class="card-text"> Disply Size: ${information.mainFeatures.displaySize}</p>
+    <p class="card-text"> Memory: ${information.mainFeatures.memory}</p>
     <p class="card-text"> Relese Date: ${information.releaseDate}</p>
   </div>
 </div>
