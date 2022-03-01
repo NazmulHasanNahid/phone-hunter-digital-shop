@@ -1,7 +1,14 @@
+//error message
 const error =    document.getElementById('error')
+//clear field function
+const clearField = () =>{
+  const phoneContainer = document.getElementById('phone-container')
+  phoneContainer.innerHTML = '' ;
+  const infoContainer = document.getElementById('info-container')
+  infoContainer.innerHTML = '' ;
+}
 
 //fetch phone data
-
 const phone = () =>{
     //get input value
     const inputField = document.getElementById('input-field');
@@ -9,12 +16,10 @@ const phone = () =>{
     document.getElementById('input-field').value = '' ;
      //error handleing
     if(searchText === typeof 'number' || searchText == ''  ){
-  
     error.innerText ="Please Search By Phone Name..!"
     clearField()
     }
     else if(searchText < 0 ){
-     
       error.innerText ="Sorry You Can't used Negative values" 
     }
     else{
@@ -22,17 +27,13 @@ const phone = () =>{
       fetch(url)
        .then(res => res.json())
        .then(data => {
-        
          if(data.data.length === 0){
           clearField()
-         
           error.innerText ="Sorry No Result Found..!" 
          }
          else{
           showPhone(data.data.slice(0,20))
-         
-          error.innerText =" " 
-
+          error.innerText =" "
          }
        })
      
@@ -65,7 +66,6 @@ infoContainer.innerHTML = '' ;
 
 //fetch details api
 const moreInfo = (id) =>{
-
  fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
   .then(res => res.json())
   .then(data => showInfo(data.data))
@@ -94,19 +94,9 @@ const showInfo = (information) =>{
     <p class="card-text"> <span class="fw-bold">Usb</span>  : ${information.others?.USB}</p>
     <p class="card-text"> <span class="fw-bold">GPS</span>  : ${information.others.GPS}</p>
     <p class="card-text"> <span class="fw-bold">WALN</span>  : ${information.others.WLAN}</p>
-    
-
   </div>
 </div>
   `
   infoContainer.appendChild(div)
   
 } 
-
-//clear field function
-const clearField = () =>{
-    const phoneContainer = document.getElementById('phone-container')
-    phoneContainer.innerHTML = '' ;
-    const infoContainer = document.getElementById('info-container')
-    infoContainer.innerHTML = '' ;
-}
