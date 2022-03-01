@@ -4,17 +4,33 @@ const phone = () =>{
     const inputField = document.getElementById('input-field');
     const searchText = inputField.value ; 
     document.getElementById('input-field').value = '' ;
-    if(searchText === typeof 'number' || searchText == ''){
+    if(searchText === typeof 'number' || searchText == ''  ){
     const error =    document.getElementById('error')
     error.innerText ="Please Search By Phone Name..!"
+    }
+    else if(searchText < 0 ){
+      const error =    document.getElementById('error')
+      error.innerText ="Sorry You Can't used Negative values" 
     }
     else{
 
       const url = ` https://openapi.programming-hero.com/api/phones?search=${searchText}`
       fetch(url)
        .then(res => res.json())
-       .then(data => showPhone(data.data.slice(0,20)))
-       document.getElementById('error').innerText = " "
+       .then(data => {
+         if(data.data.length === 0){
+          const error =    document.getElementById('error')
+          error.innerText ="No Result Found..!" 
+         }
+         else{
+          showPhone(data.data.slice(0,20))
+          const error =    document.getElementById('error')
+          error.innerText =" " 
+
+         }
+       })
+     
+       
     }
 }
 
@@ -64,14 +80,14 @@ const showInfo = (information) =>{
     <p class="card-text"> <span class="fw-bold"> Disply Size</span> : ${information.mainFeatures.displaySize}</p>
     <p class="card-text"> <span class="fw-bold">Memory</span>  : ${information.mainFeatures.memory}</p>
     <p class="card-text"> <span class="fw-bold">Sensor</span>  : ${information.mainFeatures.sensors}</p>
-    <p class="card-text"> <span class="fw-bold">Relese Date</span>  : ${information.releaseDate}</p>
+    <p id="date" class="card-text"> <span class="fw-bold">Relese Date</span>  : ${information.releaseDate }  </p>
     <p class="text-center text-info">Others Information <br> _________</p>
     <p class="card-text"> <span class="fw-bold">NFC</span>  : ${information.others.NFC}</p>
-    <p class="card-text"> <span class="fw-bold">Bluetooth</span>  : ${information.others?.Bluetooth}</p>
-    <p class="card-text"> <span class="fw-bold">Radio</span>  : ${information.others?.Radio}</p>
+    <p class="card-text"> <span class="fw-bold">Bluetooth</span>  : ${information.others.Bluetooth}</p>
+    <p class="card-text"> <span class="fw-bold">Radio</span>  : ${information.others.Radio}</p>
     <p class="card-text"> <span class="fw-bold">Usb</span>  : ${information.others?.USB}</p>
-    <p class="card-text"> <span class="fw-bold">GPS</span>  : ${information.others?.GPS}</p>
-    <p class="card-text"> <span class="fw-bold">WALN</span>  : ${information.others?.WLAN}</p>
+    <p class="card-text"> <span class="fw-bold">GPS</span>  : ${information.others.GPS}</p>
+    <p class="card-text"> <span class="fw-bold">WALN</span>  : ${information.others.WLAN}</p>
     
 
   </div>
