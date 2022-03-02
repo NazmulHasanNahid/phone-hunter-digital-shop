@@ -84,7 +84,7 @@ const showInfo = (information) =>{
   div.innerHTML= ` 
   <div class="card p-3 shadow-lg ">
   <img   src="${information.image}" class="card-img-top img-fluid w-50 mx-auto" alt="...">
-  <div class="card-body">
+  <div class="card-body ">
     <p class="card-title"> <span class="fw-bold">Brand</span> : ${information.brand}</p>
     <p class="card-text"> <span class="fw-bold">Model</span> : ${information.name}</p>
     <p class="card-text"><span class="fw-bold"> ChipSet</span> : ${information.mainFeatures.chipSet}</p>
