@@ -85,6 +85,9 @@ const showInfo = (information) =>{
   <div class="card p-3 shadow-lg ">
   <img   src="${information.image}" class="card-img-top img-fluid w-50 mx-auto" alt="...">
   <div class="card-body ">
+  <p class="text-center text-info fw-bold my-3">Main Feature<br> _________</p>
+
+    <div class="bg-secondary border border-info text-white p-3" >
     <p class="card-title"> <span class="fw-bold">Brand</span> : ${information.brand}</p>
     <p class="card-text"> <span class="fw-bold">Model</span> : ${information.name}</p>
     <p class="card-text"><span class="fw-bold"> ChipSet</span> : ${information.mainFeatures.chipSet}</p>
@@ -92,13 +95,16 @@ const showInfo = (information) =>{
     <p class="card-text"> <span class="fw-bold">Memory</span>  : ${information.mainFeatures.memory}</p>
     <p class="card-text"> <span class="fw-bold">Sensor</span>  : ${information.mainFeatures.sensors}</p>
     <p id="date" class="card-text"> <span class="fw-bold">Relese Date</span>  : ${information.releaseDate ?information.releaseDate :'Not Found'} </p>
-    <p class="text-center text-info">Others Information <br> _________</p>
+    </div>
+    <p class="text-center text-info fw-bold my-3">Others Information  <br> _________</p>
+    <div class="bg-secondary text-white p-3  border border-info">
     <p class="card-text"> <span class="fw-bold">NFC</span>  : ${information?.others?.NFC? information.others.NFC: " Not Found" }</p>
     <p class="card-text"> <span class="fw-bold">Bluetooth</span>  : ${information?.others?.Bluetooth? information.others.Bluetooth:" Not Found"}</p>
     <p class="card-text"> <span class="fw-bold">Radio</span>  : ${information?.others?.Radio? information.others.Radio:"Not Found"}</p>
     <p class="card-text"> <span class="fw-bold">Usb</span>  : ${information?.others?.USB ? information.others.USB :"Not Found"}</p>
     <p class="card-text"> <span class="fw-bold">GPS</span>  : ${information?.others?.GPS? information.others.GPS :"Not Found"}</p>
     <p class="card-text"> <span class="fw-bold">WALN</span>  : ${information?.others?.WLAN? information.others.WLAN :"Not Found"}</p>
+    </div>
   </div>
 </div>
   `
