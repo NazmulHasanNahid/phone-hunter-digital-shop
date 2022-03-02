@@ -82,7 +82,7 @@ const showInfo = (information) =>{
   const div = document.createElement('div')
   div.classList.add('col')
   div.innerHTML= ` 
-  <div class="card p-3 shadow-lg">
+  <div class="card p-3 shadow-lg ">
   <img   src="${information.image}" class="card-img-top img-fluid w-50 mx-auto" alt="...">
   <div class="card-body">
     <p class="card-title"> <span class="fw-bold">Brand</span> : ${information.brand}</p>
@@ -93,7 +93,7 @@ const showInfo = (information) =>{
     <p class="card-text"> <span class="fw-bold">Sensor</span>  : ${information.mainFeatures.sensors}</p>
     <p id="date" class="card-text"> <span class="fw-bold">Relese Date</span>  : ${information.releaseDate ?information.releaseDate :'Not Found'} </p>
     <p class="text-center text-info">Others Information <br> _________</p>
-    <p class="card-text"> <span class="fw-bold">NFC</span>  : ${information?.others?.NFC? information.others.NFC: "NFC Not Found" }</p>
+    <p class="card-text"> <span class="fw-bold">NFC</span>  : ${information?.others?.NFC? information.others.NFC: " Not Found" }</p>
     <p class="card-text"> <span class="fw-bold">Bluetooth</span>  : ${information?.others?.Bluetooth? information.others.Bluetooth:" Not Found"}</p>
     <p class="card-text"> <span class="fw-bold">Radio</span>  : ${information?.others?.Radio? information.others.Radio:"Not Found"}</p>
     <p class="card-text"> <span class="fw-bold">Usb</span>  : ${information?.others?.USB ? information.others.USB :"Not Found"}</p>
