@@ -82,12 +82,12 @@ const showInfo = (information) =>{
   const div = document.createElement('div')
   div.classList.add('col')
   div.innerHTML= ` 
-  <div class="card p-3 shadow-lg ">
-  <img   src="${information.image}" class="card-img-top img-fluid w-50 mx-auto" alt="...">
+  <div class="card   p-3 shadow-lg ">
+  <img  src="${information.image}" class="card-img-top img-fluid w-50 mx-auto " alt="...">
   <div class="card-body ">
   <p class="text-center text-info fw-bold my-3">Main Feature<br> _________</p>
 
-    <div class="bg-secondary border border-info text-white p-3" >
+    <div class="bg-light border border-info  p-3" >
     <p class="card-title"> <span class="fw-bold">Brand</span> : ${information.brand}</p>
     <p class="card-text"> <span class="fw-bold">Model</span> : ${information.name}</p>
     <p class="card-text"><span class="fw-bold"> ChipSet</span> : ${information.mainFeatures.chipSet}</p>
@@ -97,7 +97,7 @@ const showInfo = (information) =>{
     <p id="date" class="card-text"> <span class="fw-bold">Relese Date</span>  : ${information.releaseDate ?information.releaseDate :'Not Found'} </p>
     </div>
     <p class="text-center text-info fw-bold my-3">Others Information  <br> _________</p>
-    <div class="bg-secondary text-white p-3  border border-info">
+    <div class="bg-light  p-3  border border-info">
     <p class="card-text"> <span class="fw-bold">NFC</span>  : ${information?.others?.NFC? information.others.NFC: " Not Found" }</p>
     <p class="card-text"> <span class="fw-bold">Bluetooth</span>  : ${information?.others?.Bluetooth? information.others.Bluetooth:" Not Found"}</p>
     <p class="card-text"> <span class="fw-bold">Radio</span>  : ${information?.others?.Radio? information.others.Radio:"Not Found"}</p>
