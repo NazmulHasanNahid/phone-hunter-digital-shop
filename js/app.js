@@ -94,14 +94,16 @@ const showInfo = (information) =>{
     <p id="date" class="card-text"> <span class="fw-bold">Relese Date</span>  : ${information.releaseDate ?information.releaseDate :'Not Found'} </p>
     <p class="text-center text-info">Others Information <br> _________</p>
     <p class="card-text"> <span class="fw-bold">NFC</span>  : ${information?.others?.NFC? information.others.NFC: "NFC Not Found" }</p>
-    <p class="card-text"> <span class="fw-bold">Bluetooth</span>  : ${information?.others?.Bluetooth? information.others.Bluetooth:"Bluetooth Not Found"}</p>
-    <p class="card-text"> <span class="fw-bold">Radio</span>  : ${information?.others?.Radio? information.others.Radio:"Radio Not Found"}</p>
-    <p class="card-text"> <span class="fw-bold">Usb</span>  : ${information?.others?.USB ? information.others.USB :"USB Not Found"}</p>
-    <p class="card-text"> <span class="fw-bold">GPS</span>  : ${information?.others?.GPS? information.others.GPS :"Gps Not Found"}</p>
-    <p class="card-text"> <span class="fw-bold">WALN</span>  : ${information?.others?.WLAN? information.others.WLAN :"Waln Not Found"}</p>
+    <p class="card-text"> <span class="fw-bold">Bluetooth</span>  : ${information?.others?.Bluetooth? information.others.Bluetooth:" Not Found"}</p>
+    <p class="card-text"> <span class="fw-bold">Radio</span>  : ${information?.others?.Radio? information.others.Radio:"Not Found"}</p>
+    <p class="card-text"> <span class="fw-bold">Usb</span>  : ${information?.others?.USB ? information.others.USB :"Not Found"}</p>
+    <p class="card-text"> <span class="fw-bold">GPS</span>  : ${information?.others?.GPS? information.others.GPS :"Not Found"}</p>
+    <p class="card-text"> <span class="fw-bold">WALN</span>  : ${information?.others?.WLAN? information.others.WLAN :"Not Found"}</p>
   </div>
 </div>
   `
   infoContainer.appendChild(div)
   
 } 
+
+
